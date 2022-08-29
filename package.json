@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "eslint . --ext .json --ext .js",
+    "lint:fix": "eslint . --fix --ext .json --ext .js"
+  },
+  "devDependencies": {
+    "eslint": "^6.2.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-json": "^1.4.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.4",
+    "lint-staged": "^9.2.5",
+    "prettier": "^1.18.2"
+  },
+  "lint-staged": {
+    "*.{js,json}": [
+    "npm run --silent lint:fix", "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
